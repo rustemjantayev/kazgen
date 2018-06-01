@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+        <link href="styles.css" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="data.js"></script>
+        <script type="text/javascript" src="scripts.js"></script>
+    </head>
+    <body>
+        <!-- 
+            TODO: CREATE A SIMPLE BOOTSTRAP NAVIGATION/HEADER HERE USING:
+                https://getbootstrap.com/docs/4.1/components/navbar/
+                https://getbootstrap.com/docs/4.1/utilities/spacing/
+                https://www.rioseo.com/wp-content/uploads/2017/12/rio-seo-local-seo-software-logo.png
+        -->
+    
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+          <a class="navbar-brand" href="#"><img src="https://www.rioseo.com/wp-content/uploads/2017/12/rio-seo-local-seo-software-logo.png" alt="RIOSEO"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- 
+            TODO: USE A BOOTSTRAP RESPONSIVE GRID TO LAYOUT THE LOCATION CARD, MAP, AND PROMOS IN THE TWO CONTAINERS BELOW
+                https://getbootstrap.com/docs/4.1/layout/grid/
+                https://getbootstrap.com/docs/4.1/utilities/spacing/
+        -->
+        <div class="container locator mb-4">
+            <div class="row">
+                <div class="col-sm-3 location-card-container"></div>
+
+                <div class="col-sm-9 map-container"></div>
+            </div>
+        </div>
+
+        <div class="container promos mb-4">
+            <div class="row">
+                <div class="col-sm-3 promo-image-wrap">
+                    <div class="promo-image mb-4">
+                        <img src="http://via.placeholder.com/600x300" class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="col-sm-3 promo-image-wrap">
+                    <div class="promo-image mb-4">
+                        <img src="http://via.placeholder.com/600x300" class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="col-sm-3 promo-image-wrap">
+                    <div class="promo-image mb-4">
+                        <img src="http://via.placeholder.com/600x300" class="img-fluid">
+                    </div>
+                </div>
+
+                <div class="col-sm-3 promo-image-wrap">
+                    <div class="promo-image mb-4">
+                        <img src="http://via.placeholder.com/600x300" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <!-- BELOW ARE HTML TEMPLATES THAT ARE USED FOR RENDERING JS DATA -->
+    <script type="text/html" class="location-card-template">
+        <div class="location-card-wrap">
+            <div class="location-card mb-4">
+                <div class="location-name text-warning"><h3>{{name}}</h3></div>
+                <address>
+                    <div class="address">{{address}}</div>
+                    <div class="city-region-zip">{{city}}, {{region}} {{zip}}</div>
+                    <div class="phone"><span>Phone:</span> {{phone}}</div>
+                </address>
+                <div class="hours-container"></div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" class="hours-template">
+        <div class="hours-wrap">
+            <div class="hours">
+                <div class="day">
+                    <span><b>Mon:</b> {{monday}}</span><br/>
+                    <span><b>Tue:</b> {{tuesday}}</span><br/>
+                    <span><b>Wed:</b> {{wednesday}}</span><br/>
+                    <span><b>Thu:</b> {{thursday}}</span><br/>
+                    <span><b>Fri:</b> {{friday}}</span><br/>
+                    <span><b>Sat:</b> {{saturday}}</span><br/>
+                    <span><b>Sun:</b> {{sunday}}</span>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <!-- TODO: modify template to use lat/lng instead of mapURL -->
+    <script type="text/html" class="map-template">
+        <div class="map-wrap">
+            <div class="map">
+                <img src="{{mapURL}}" class="img-fluid">
+                <div class="search-bar-wrap d-none d-md-block bg-white p-2">
+                    <div class="search-bar input-group">
+                        <div class="input-group-prepend"><i class="btn geo-locate-btn fas fa-location-arrow text-white bg-warning "></i></div>
+                        <input class="search-input" type="text" name="search" placeholder="Search...">
+                        <div class="input-group-append"><i class="btn search-btn fas fa-search text-white bg-warning "></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
